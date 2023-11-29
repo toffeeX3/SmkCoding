@@ -22,7 +22,7 @@ const logout = async () => {
 <template>
 <!-- Main navigation container -->
 <nav
-  class="flex-no-wrap relative flex w-full items-center justify-between bg-[#fc46aa] py-2 shadow-md shadow-black/ dark:bg-neutral dark:shadow-black/10 lg:flex-wrap lg:justify-start lg:py-4">
+  class="flex-no-wrap relative flex w-full items-center justify-between bg-[#e19b9f] py-2 shadow-md shadow-black/ dark:bg-neutral dark:shadow-black/10 lg:flex-wrap lg:justify-start lg:py-4">
   <div class="flex w-full flex-wrap items-center justify-between px-3">
     <!-- Hamburger button for mobile view -->
     <button

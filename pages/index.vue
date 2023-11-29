@@ -1,3 +1,3 @@
 <template>
-    <img src="../images/index/uatama.png">
+    <img src="../images/index/utama.png">
 </template>
