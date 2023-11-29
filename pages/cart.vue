@@ -1,4 +1,8 @@
 <script lang="ts" setup> 
+definePageMeta({
+  middleware: ["user-access"],
+});
+
 import type { Products } from '~/types/products'; 
 const products = ref<Products[]>([]); 
 const totalPrice = computed(() => { 

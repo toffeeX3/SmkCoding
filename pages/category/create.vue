@@ -1,7 +1,7 @@
-<template> 
-    <section> 
-        <div class="container"> 
-            <FormsCategoryForm /> 
-        </div> 
-    </section> 
-</template>
+<template>
+    <section>
+      <div class="container">
+        <FormsCategoryForm />
+      </div>
+    </section>
+  </template>

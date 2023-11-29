@@ -1,5 +1,5 @@
 <script lang="ts" setup>
-import  useCategoryStore  from '~/stores/category';
+import { useCategoryStore } from '~/stores/category';
 import  useStorageStore  from "~/stores/storage";
 import { useProductsStore } from '~/stores/products';
 import type { FormField } from '~/types/products';

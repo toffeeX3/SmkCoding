@@ -1,3 +1,24 @@
+<script lang="ts" setup>
+import { useAuthStore } from "~/stores/auth"
+const authStore = useAuthStore();
+const isAuthenticated = ref();
+const router = useRouter();
+isAuthenticated.value = useCookie("access_token").value;
+const logout = async () => {
+ await authStore.logout();
+ const accessToken = useCookie("access_token");
+ const refreshToken = useCookie("refresh_token");
+ accessToken.value = null;
+ refreshToken.value = null;
+ setTimeout(() => {
+ isAuthenticated.value = useCookie("access_token").value;
+ }, 100);
+ router.push({
+ path: "/"
+ })
+}
+</script>
+
 <template>
 <!-- Main navigation container -->
 <nav
@@ -76,11 +97,25 @@
           > -->
           <nuxt-link to="/product" class="text-neutral-500 transition duration-200 hover:text-neutral-700 hover:ease-in-out focus:text-neutral-700 disabled:text-black/30 motion-reduce:transition-none dark:text-neutral-200 dark:hover:text-neutral-300 dark:focus:text-neutral-300 lg:px-2 [&.active]:text-black/90 dark:[&.active]:text-neutral-400">Products</nuxt-link>
         </li>
+
+        <li class="mb-4 lg:mb-0 lg:pr-2" data-te-nav-item-ref>
+          <!-- <a
+            class="text-neutral-500 transition duration-200 hover:text-neutral-700 hover:ease-in-out focus:text-neutral-700 disabled:text-black/30 motion-reduce:transition-none dark:text-neutral-200 dark:hover:text-neutral-300 dark:focus:text-neutral-300 lg:px-2 [&.active]:text-black/90 dark:[&.active]:text-neutral-400"
+            href="#"ts
+            data-te-nav-link-ref
+            >Projects</a
+          > -->
+          <!-- <NuxtLink to="/login" class="text-neutral-500 transition duration-200 hover:text-neutral-700 hover:ease-in-out focus:text-neutral-700 disabled:text-black/30 motion-reduce:transition-none dark:text-neutral-200 dark:hover:text-neutral-300 dark:focus:text-neutral-300 lg:px-2 [&.active]:text-black/90 dark:[&.active]:text-neutral-400">Login</NuxtLink> -->
+        </li>
       </ul>
     </div>
 
     <!-- Right elements -->
     <div class="relative flex items-center">
+
+      <NuxtLink v-if="!isAuthenticated" to="/login" class="text-neutral-500 transition duration-200 hover:text-neutral-700 hover:ease-in-out focus:text-neutral-700 disabled:text-black/30 motion-reduce:transition-none dark:text-neutral-200 dark:hover:text-neutral-300 dark:focus:text-neutral-300 lg:px-2 [&.active]:text-black/90 dark:[&.active]:text-neutral-400">Login</NuxtLink>
+<div v-else class="text-neutral-500 transition duration-200 hover:text-neutral-700 hover:ease-in-out focus:text-neutral-700 disabled:text-black/30 motion-reduce:transition-none dark:text-neutral-200 dark:hover:text-neutral-300 dark:focus:text-neutral-300 lg:px-2 [&.active]:text-black/90 dark:[&.active]:text-neutral-400" @click="logout">Logout</div>
+    
       <!-- Cart Icon -->
       <a
         class="mr-4 text-neutral-600 transition duration-200 hover:text-neutral-700 hover:ease-in-out focus:text-neutral-700 disabled:text-black/30 motion-reduce:transition-none dark:text-neutral-200 dark:hover:text-neutral-300 dark:focus:text-neutral-300 [&.active]:text-black/90 dark:[&.active]:text-neutral-400"
@@ -131,6 +166,8 @@
             >1</span
           >
         </a>
+
+        
         <!-- First dropdown menu -->
         <ul
           class="absolute z-[1000] float-left m-0 hidden min-w-max list-none overflow-hidden rounded-lg border-none bg-white bg-clip-padding text-left text-base shadow-lg dark:bg-neutral-700 [&[data-te-dropdown-show]]:block"
@@ -185,6 +222,10 @@
             alt=""
             loading="lazy" />
         </a>
+
+        <div>
+          
+        </div>
         <!-- Second dropdown menu -->
         <ul
           class="absolute z-[1000] float-left m-0 hidden min-w-max list-none overflow-hidden rounded-lg border-none bg-white bg-clip-padding text-left text-base shadow-lg dark:bg-neutral-700 [&[data-te-dropdown-show]]:block"
@@ -214,6 +255,10 @@
               data-te-dropdown-item-ref
               >Something else here</a
             >
+          </li>
+
+          <li>
+            
           </li>
         </ul>
       </div>

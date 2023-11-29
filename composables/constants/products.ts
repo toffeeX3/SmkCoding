@@ -10,12 +10,12 @@ export const products = [
     },
     {
         id: 2,
-        name: "Casual Chic Yellow Shoe - jiu hong / 40-45 Europe shoe size",
+        name: "Casual Long Sleeve Plaid Shirt - jiu hong / XXL(65-70KG)",
         category: "Sepatu",
         price: 20,
         image: "/images/products/sepatu-2.png",
         isCart: false,
-        description: "A vibrant, comfortable, and versatile footwear choice for effortless everyday style.",
+        description: "Regular fit Denim design Classic collar Long buttoned sleeve Patch pocket on the chest Button up The model is 187 cm tall and is wearing a size M",
     },
     {
         id: 3,

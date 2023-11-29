@@ -20,6 +20,7 @@
   },
   "dependencies": {
     "@pinia/nuxt": "^0.5.1",
+    "@supabase/supabase-js": "^2.38.5",
     "pinia": "^2.1.7"
   }
 }

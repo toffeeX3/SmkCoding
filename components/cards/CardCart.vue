@@ -4,7 +4,7 @@ product: {
 type: Object, 
 default: {}, 
 } 
-}) 
+})
 </script> 
 <template> 
 <div class="bg-white shadow-xl p-6 rounded-xl flex gap-4 items-center"> 
